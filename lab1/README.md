@@ -28,6 +28,8 @@ kubectl apply -f config.service-2.yml
 ### Create Ingress
 
 ```
+minikube addons enable ingress
+
 kubectl apply -f config.ingress.yml
 ```
 
