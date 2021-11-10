@@ -49,3 +49,16 @@ spec:
         attempts: 3
         retryOn: 5xx
         perTryTimeout: 5s
+---
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: service-2-destination
+spec:
+  host: service-2-service
+  trafficPolicy:
+    outlierDetection:
+      consecutive5xxErrors: 10
+      interval: 10s
+      baseEjectionTime: 30s
+      maxEjectionPercent: 80
